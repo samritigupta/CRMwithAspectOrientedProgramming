@@ -4,6 +4,96 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 One of the key components of Spring is the AOP framework. While the Spring IoC container does not depend on AOP, meaning you do not need to use AOP if you don't want to, AOP complements Spring IoC to provide a very capable middleware solution.
 
+# Notes
+CRM Customer Relationship Manager
+
+                |   /customer/list
+                |   -------------->   Customer Controller
+                |                           |
+        web     |                           |
+        Browser |                           |
+                |                           |
+                |                           |
+                |                           |
+                |                           >
+                |    <--------------    list-customers.jsp
+
+
+
+  Big Picture           1                                     2     (Data access Object)   3
+                |   -------------->   Customer Controller <-------->  Customer DAO       <----> DB
+                |                           |
+        web     |                           |
+        Browser |                           |
+                |                           |4
+                |                           |
+                |                           |
+                |           5                >
+                |    <--------------    JSP PAGES
+
+
+
+    - DATA ACCESS OBJECT
+    1. Responsible for interacting with the database  (will use hibernate for this)
+    2. this is common design pattern dao
+
+
+
+    - List of customers
+    1. Customer(Model/Entity)
+    2. Customer Dao
+    3. Customer Controller
+    4. Jsp page list-customer
+
+
+
+   @Component  (register beans)  <------ @Service (spring will automatically register the service impl.)
+      |                 |
+      |                 |
+  @Controller       @Repository (DAO) -> spring will automatically provide translation for any JDBC related
+                                            exceptions
+
+
+  - @RequestMapping(value = "/ex/foos", method = POST)
+  - @RequestMapping(value = "/ex/foos", method = GET)
+
+  Now to limit get and post new annotaions are used
+  @GetMapping() and @PostMapping
+
+  - Get                                             Post
+  1. Good for debugging                     can't bookmark or email url
+  2. bookmark or email url                  no limitation on data length
+  3. limitation on data length              can also send binary data
+
+
+  Customer controller <---> customer service <---> customer dao <---> db
+
+  after service layer @Transactional all service layer will handle and so can remove @Transactional from DAO.
+
+
+  Customer service layer
+  - implementation of custom facade service layer.
+                     /-->license dao
+                    /
+        service layer -----> customer dao
+                   \
+                    \
+                     \> sales dao
+
+
+Two steps to enable Aspect J:
+1. Add theAspect J files
+2. <!-- for Java configuration use @EnableAspectJAutoProxy -->
+and in XML
+      xmlns:aop="http://www.springframework.org/schema/aop"
+
+        http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- for Java configuration use @EnableAspectJAutoProxy -->
+	<aop:aspectj-autoproxy />
+
+
 # Terminology.
 
 - Aspect: a modularization of a concern that cuts across multiple classes. Transaction management is a good example of a crosscutting concern in J2EE applications. In Spring AOP, aspects are implemented using regular classes (the schema-based approach) or regular classes annotated with the @Aspect annotation (the @AspectJ style).
