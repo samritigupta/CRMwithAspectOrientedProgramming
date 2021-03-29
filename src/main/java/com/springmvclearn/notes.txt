@@ -27,7 +27,7 @@ CRM Customer Relationship Manager
 
 
     - DATA ACCESS OBJECT
-    1. Responsible for interfacing with the database  (will use hibernate for this)
+    1. Responsible for interacting with the database  (will use hibernate for this)
     2. this is common design pattern dao
 
 

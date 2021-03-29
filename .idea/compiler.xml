@@ -10,11 +10,13 @@
         <module name="SpringMVCHibernateCRMAOPSupport" />
         <module name="DummyTest1" />
         <module name="SpringMVCHibernateCRM" />
+        <module name="CRMwithAspectOrientedProgramming" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="CRMwithAspectOrientedProgramming" options="-parameters" />
       <module name="DummyTest1" options="-parameters" />
       <module name="SpringMVC" options="-parameters" />
       <module name="SpringMVCHibernateCRM" options="-parameters" />
