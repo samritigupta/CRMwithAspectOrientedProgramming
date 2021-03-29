@@ -33,13 +33,11 @@ CRM Customer Relationship Manager
 
 
 
-    - DATA ACCESS OBJECT
+- DATA ACCESS OBJECT
     1. Responsible for interacting with the database  (will use hibernate for this)
     2. this is common design pattern dao
 
-
-
-    - List of customers
+- List of customers
     1. Customer(Model/Entity)
     2. Customer Dao
     3. Customer Controller
@@ -83,8 +81,7 @@ CRM Customer Relationship Manager
 
 Two steps to enable Aspect J:
 1. Add theAspect J files
-2. <!-- for Java configuration use @EnableAspectJAutoProxy -->
-and in XML
+2. For Java configuration use @EnableAspectJAutoProxy and in XML add below lines:
       xmlns:aop="http://www.springframework.org/schema/aop"
 
         http://www.springframework.org/schema/aop
