@@ -4,6 +4,32 @@ Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) 
 
 One of the key components of Spring is the AOP framework. While the Spring IoC container does not depend on AOP, meaning you do not need to use AOP if you don't want to, AOP complements Spring IoC to provide a very capable middleware solution.
 
+# Notes
+CRM Customer Relationship Manager
+
+                |   /customer/list
+                |   -------------->   Customer Controller
+                |                           |
+        web     |                           |
+        Browser |                           |
+                |                           |
+                |                           |
+                |                           |
+                |                           >
+                |    <--------------    list-customers.jsp
+
+
+
+- DATA ACCESS OBJECT
+    1. Responsible for interacting with the database  (will use hibernate for this)
+    2. this is common design pattern dao
+
+- List of customers
+    1. Customer(Model/Entity)
+    2. Customer Dao
+    3. Customer Controller
+    4. Jsp page list-customer
+
 # Terminology.
 
 - Aspect: a modularization of a concern that cuts across multiple classes. Transaction management is a good example of a crosscutting concern in J2EE applications. In Spring AOP, aspects are implemented using regular classes (the schema-based approach) or regular classes annotated with the @Aspect annotation (the @AspectJ style).
