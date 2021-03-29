@@ -20,7 +20,8 @@ CRM Customer Relationship Manager
 
 
 
-  Big Picture           1                                     2     (Data access Object)   3
+- Big Picture     
+			1                                     2     (Data access Object)   3
                 |   -------------->   Customer Controller <-------->  Customer DAO       <----> DB
                 |                           |
         web     |                           |
@@ -83,10 +84,8 @@ Two steps to enable Aspect J:
 1. Add theAspect J files
 2. For Java configuration use @EnableAspectJAutoProxy and in XML add below lines:
       xmlns:aop="http://www.springframework.org/schema/aop"
-
-        http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop
 		http://www.springframework.org/schema/aop/spring-aop.xsd">
-
 	<!-- for Java configuration use @EnableAspectJAutoProxy -->
 	<aop:aspectj-autoproxy />
 
